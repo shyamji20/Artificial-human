@@ -46,20 +46,20 @@ reviews_ints = []
 for each in reviews:
     reviews_ints.append([vocab_to_int[word] for word in each.split()])
 
-# Truncate each review to 300 steps(same leangth)
-seq_len = 200
+# Truncate each review to 300 steps(each review with same leangth)
+seq_len = 300
 features = np.zeros((len(reviews_ints), seq_len), dtype=int)
 for i, row in enumerate(reviews_ints):
     features[i, -len(row):] = np.array(row)[:seq_len]
 
 # Training, Validation, Test
-split_idx = int(len(features)*0.8)
-train_x, val_x = features[:split_idx], features[split_idx:]
-train_y, val_y = labels[:split_idx], labels[split_idx:]
+split_id = int(len(features)*0.8)
+train_x, val_x = features[:split_id], features[split_id:]
+train_y, val_y = labels[:split_id], labels[split_id:]
 
-test_idx = int(len(val_x)*0.5)
-val_x, test_x = val_x[:test_idx], val_x[test_idx:]
-val_y, test_y = val_y[:test_idx], val_y[test_idx:]
+test_id = int(len(val_x)*0.5)
+val_x, test_x = val_x[:test_id], val_x[test_id:]
+val_y, test_y = val_y[:test_id], val_y[test_id:]
 
 print("\t\t\tFeature Shapes:")
 print("Train set: \t\t{}".format(train_x.shape), 
