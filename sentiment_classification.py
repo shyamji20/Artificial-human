@@ -67,7 +67,7 @@ print("Train set: \t\t{}".format(train_x.shape),
 
 # Build the Model
 lstm_size = 256             # Number of units in the hidden layers in the LSTM cells
-lstm_layer = 1              # Number of LSTM layers in the network
+lstm_layer = 2              # Number of LSTM layers in the network
 batch_size = 500            # The number of reviews to feed the network in one training pass.
 learning_rate = 0.001       # Learning rate
 
