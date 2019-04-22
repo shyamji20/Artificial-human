@@ -4,8 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 with open('path of reviews file', 'r') as f:
-    review = f.read()
-reviews = review.split('\n')
+    reviews = f.read()
 
 with open('path of labels file', 'r') as f:
     labels = f.read()
